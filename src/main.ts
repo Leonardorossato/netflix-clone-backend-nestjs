@@ -6,9 +6,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Spotify Backend Api')
+    .setTitle('Netflix Clone Backend Api')
     .setDescription(
-      'Spotify Backend Api with NestJs, TypeOrm, Postgres and Docker',
+      'Netflix Clone Backend Api with NestJs, MongoDB, Mongoose, Docker, Swagger and keycloak',
     )
     .addBearerAuth()
     .setVersion('1.0')
