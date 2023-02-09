@@ -1,2 +1,1 @@
-@Schema()
 export class Movie {}
