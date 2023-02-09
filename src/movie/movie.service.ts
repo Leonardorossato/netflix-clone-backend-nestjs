@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { SearchTitle } from './dto/search-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 import { Movie } from './schema/movie.shema';
 
@@ -28,6 +29,22 @@ export class MovieService {
     } catch (error) {
       throw new HttpException(
         'Error finding all movies',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  async searcByTitle(dto: SearchTitle) {
+    try {
+      const movie = await this.movieModel.findOne({
+        where: { title: dto.title },
+      });
+      if (!movie)
+        throw new HttpException('Movie not found', HttpStatus.NOT_FOUND);
+      return movie;
+    } catch (error) {
+      throw new HttpException(
+        `Error to find a movie by name: ${dto.title} `,
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
