@@ -14,22 +14,22 @@ export class Movie {
   @Prop({ required: true, type: String, minlength: 3, maxlength: 255 })
   img: string;
 
-  @Prop({  type: String, minlength: 3, maxlength: 255 })
+  @Prop({ type: String, minlength: 3, maxlength: 255 })
   imgTitle: string;
 
-  @Prop({  type: String, minlength: 3, maxlength: 255 })
+  @Prop({ type: String, minlength: 3, maxlength: 255 })
   imgSm: string;
 
-  @Prop({  type: String, minlength: 3, maxlength: 255 })
+  @Prop({ type: String, minlength: 3, maxlength: 255 })
   trailer: string;
 
-  @Prop({  type: String, minlength: 3, maxlength: 255 })
+  @Prop({ type: String, minlength: 3, maxlength: 255 })
   video: string;
 
   @Prop({ type: String, minlength: 3, maxlength: 255 })
   year: string;
 
-  @Prop({ type: Number, minlength: 3, maxlength: 255 })
+  @Prop({ type: Number })
   limit: number;
 
   @Prop({ type: String, minlength: 3, maxlength: 255 })
