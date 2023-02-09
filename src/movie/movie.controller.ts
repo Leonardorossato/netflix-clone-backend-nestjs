@@ -10,6 +10,7 @@ import {
 import { MovieService } from './movie.service';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
+import { SearchTitle } from './dto/search-movie.dto';
 
 @Controller('movie')
 export class MovieController {
@@ -23,6 +24,11 @@ export class MovieController {
   @Get()
   async findAll() {
     return await this.movieService.findAll();
+  }
+
+  @Get('/:title')
+  async findMovieTitle(@Param('title') dto: SearchTitle) {
+    return await this.movieService.searcByTitle(dto);
   }
 
   @Get(':id')
